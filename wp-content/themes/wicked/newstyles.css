@@ -1,3 +1,31 @@
+/* =Homepage specific styles 
+-------------------------------------------------------------- */
+body.home #container {
+    float: none;
+    margin: 0;
+    width:960px;
+}
+body.home #content {
+    width:900px;
+    overflow:hidden;
+    margin: 0 0 0 10px;
+}
+
+body.home .hentry {
+    width: inherit;
+}
+
+body.home ul#simplepages {
+    width: 940px;
+    margin: 0 auto;
+}
+
+body.home ul#simplepages li {
+    list-style-type: none;
+    display: inline;
+    margin-right: 30px;
+}
+
 
 /* =Global Elements
 -------------------------------------------------------------- */

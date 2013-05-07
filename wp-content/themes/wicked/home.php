@@ -67,5 +67,5 @@
 	//thematic_sidebar();
 	
 	// calling footer.php
-	get_footer();
+	get_footer('homepage');
 ?>

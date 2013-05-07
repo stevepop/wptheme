@@ -19,13 +19,13 @@
 define('DB_NAME', 'wptutor');
 
 /** MySQL database username */
-define('DB_USER', 'testdb');
+define('DB_USER', 'themedb');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'testdb');
+define('DB_PASSWORD', 'themedb');
 
 /** MySQL hostname */
-define('DB_HOST', 'instance15925.db.xeround.com:10694');
+define('DB_HOST', 'localhost');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
