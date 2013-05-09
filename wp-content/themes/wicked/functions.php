@@ -37,4 +37,46 @@ function wicked_linklove($content) {
 }
 
 add_filter('thematic_post','wicked_linklove', 90);
+
+function wicked_showbio($content)  {
+    if (is_single()) {
+        $content .=  '<div id="authorbio">';
+        $content .= '<h3>About ' . get_the_author() . '</h3>';
+        $content .= '<p>' . get_avatar(get_the_author_meta("user_email"), "50");
+        $content .= get_the_author_meta( 'description' ) .'</p></div>';
+    }
+    return $content;
+}
+add_filter('thematic_post','wicked_showbio', '70');
+
+add_theme_support('post-thumbnails');
+set_post_thumbnail_size(540, 300, true);
+add_image_size('homepage-thumbnail', 300, 200, true);
+
+function wicked_indexloop()
+{
+    query_posts("posts_per_page=4");
+    $counter = 1;
+
+    if (have_posts()) : while (have_posts()) : the_post(); ?>
+        <div id="post-<?php the_ID() ?>" class="<?php thematic_post_class() ?>">
+            <?php thematic_postheader();
+            if ($counter == 1 && has_post_thumbnail()) {
+                the_post_thumbnail('homepage-thumbnail');
+            } ?>
+            <div class="entry-content">
+                <?php the_excerpt(); ?>
+                <a href="<?php the_permalink(); ?>" class="more"><?php echo more_text() ?></a>
+                <?php $counter++; ?>
+            </div>
+        </div><!-- .post -->
+        <?php endwhile; else: ?>
+        <h2>Eek</h2>
+        <p>There are no posts to show!</p>
+        <?php endif;
+    wp_reset_query();
+}
+
+
+
 ?>

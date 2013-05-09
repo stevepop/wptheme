@@ -39,7 +39,10 @@
             	thematic_above_indexloop();
 				
             	// action hook creating the index loop
-            	thematic_indexloop();
+            	//thematic_indexloop();
+
+               // action hook to replace the index loop with custom homepage loop
+               wicked_indexloop();
 				
             	// action hook for placing content below the index loop
             	thematic_below_indexloop();
@@ -48,7 +51,7 @@
             	//get_sidebar('index-bottom');
 				
             	// create the navigation below the content
-            	thematic_navigation_below();
+            	//thematic_navigation_below();
             ?>
 
 			</div><!-- #content -->
