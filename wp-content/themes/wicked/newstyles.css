@@ -26,24 +26,24 @@ body.home ul#simplepages li {
     margin-right: 30px;
 }
 
-body.home div.p1 {
+body.home div.p {
     font-size: 120%;
 }
-body.home div.p1 img {
+body.home div.p img {
     float: left;
     margin-right: 30px;
 }
-body.home div.p2 {
+body.home div.p1 {
     clear: left;
 }
+body.home div.p1,
 body.home div.p2,
-body.home div.p3,
-body.home div.p4 {
+body.home div.p3 {
     width: 270px;
     float: left;
     margin-top: 22px;
 }
-body.home div.p3 {
+body.home div.p2 {
     margin-left: 30px;
     margin-right: 30px;
 }
@@ -55,6 +55,7 @@ body.home div.p3 {
 body, input, textarea {
     font: 15px Georgia,serif;
     line-height:22px;
+    background: #FFFAF0;
 }
 p, ul, ol, dd, pre {
     margin-bottom:22px;
@@ -152,6 +153,7 @@ a:hover {
     margin:			0;
     padding:		0;
     list-style:		none;
+    background: #FFFAF0;
 }
 .sf-menu {
     line-height:	1.0;
@@ -830,6 +832,17 @@ li.content-column {
 */
 #subsidiary {
     padding:33px 0 0 0;
+}
+/*
+    Footer Asides
+*/
+#subsidiary {
+    padding:33px 0 0 0;
+}
+
+#footer-aside {
+    width: 940px;
+    margin: 0 auto;
 }
 
 

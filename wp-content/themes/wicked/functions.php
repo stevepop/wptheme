@@ -3,6 +3,7 @@
 //  Custom Child Theme Functions
 //
 
+
 function wicked_footer_pagelinks() {
     echo '<ul id="simplepages">';
     wp_list_pages('depth=1&sort_column=menu_order&title_li=');
@@ -52,6 +53,8 @@ add_filter('thematic_post','wicked_showbio', '70');
 add_theme_support('post-thumbnails');
 set_post_thumbnail_size(540, 300, true);
 add_image_size('homepage-thumbnail', 300, 200, true);
+add_theme_support('thematic_legacy_body_class');
+add_theme_support('thematic_legacy_post_class');
 
 function wicked_indexloop()
 {
@@ -59,7 +62,7 @@ function wicked_indexloop()
     $counter = 1;
 
     if (have_posts()) : while (have_posts()) : the_post(); ?>
-        <div id="post-<?php the_ID() ?>" class="<?php thematic_post_class() ?>">
+        <div id="post-<?php the_ID() ?>" <?php post_class(); ?>">
             <?php thematic_postheader();
             if ($counter == 1 && has_post_thumbnail()) {
                 the_post_thumbnail('homepage-thumbnail');
@@ -77,6 +80,13 @@ function wicked_indexloop()
     wp_reset_query();
 }
 
+function wicked_remove_index_insert() {
+    unregister_sidebar('index-insert');
+}
+add_action('init', 'wicked_remove_index_insert', 20);
 
+// Include custom widget areas
+include('library/widget-areas.php');
+include('widgets/author-data.php');
 
 ?>
