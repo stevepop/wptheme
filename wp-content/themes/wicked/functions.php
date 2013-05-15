@@ -89,4 +89,7 @@ add_action('init', 'wicked_remove_index_insert', 20);
 include('library/widget-areas.php');
 include('widgets/author-data.php');
 
+// include theme options
+include('library/options.php');
+
 ?>
