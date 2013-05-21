@@ -1,4 +1,43 @@
-/* =Homepage specific styles 
+
+/*= Pullquote styles
+-------------------------------------------------------------- */
+blockquote.pull-quote {
+    border-left: 1px dotted #CCC;
+    padding: 5px 0 5px 20px;
+}
+
+blockquote.pull-quote cite {
+    display: block;
+    text-align: right;
+}
+
+blockquote.pull-quote cite:before {
+    content: "—";
+}
+
+blockquote.pull-quote p {
+    font-size: 1.5em;
+    line-height: 2.1em;
+}
+
+/* =Mission statement template styles
+-------------------------------------------------------------- */
+body.page-template-mission-statement-php #content {
+    width:900px;
+    overflow:hidden;
+    margin: 0 0 0 10px;
+}
+
+body.page-template-mission-statement-php .entry-content {
+    font-size: 1.8em;
+    line-height: 1.2em;
+}
+
+body.page-template-mission-statement-php .hentry {
+    width: inherit;
+}
+
+/* =Homepage specific styles
 -------------------------------------------------------------- */
 body.home #container {
     float: none;

@@ -58,7 +58,12 @@ add_theme_support('thematic_legacy_post_class');
 
 function wicked_indexloop()
 {
-    query_posts("posts_per_page=4");
+    global $childoptions;
+    foreach ($childoptions as $value) {
+        $$value['id'] = get_option($value['id'], $value['std']);
+    }
+
+    query_posts("posts_per_page=4&cat=" . $wicked_feature_cat);
     $counter = 1;
 
     if (have_posts()) : while (have_posts()) : the_post(); ?>
@@ -84,6 +89,48 @@ function wicked_remove_index_insert() {
     unregister_sidebar('index-insert');
 }
 add_action('init', 'wicked_remove_index_insert', 20);
+
+function remove_thematic_blogtitle() {
+    remove_action('thematic_header','thematic_blogtitle',3);
+}
+add_action('init','remove_thematic_blogtitle');
+
+// blogtitle div with header image class
+function wicked_blogtitle() {
+    // load the custom options
+    global $childoptions;
+    foreach ($childoptions as $value) {
+        $$value['id'] = get_option($value['id'], $value['std']);
+    }
+
+    if('true' == $wicked_show_logo) { ?>
+        <div id="blog-title" class="header-image">
+      <span><a href="<?php bloginfo('url') ?>/"
+               title="<?php bloginfo('name') ?>"
+               rel="home"><?php bloginfo('name') ?></a></span>
+        </div>
+    <?php } else {
+        thematic_blogtitle();
+    }
+}
+add_action('thematic_header', 'wicked_blogtitle', 3);
+
+// add a pullquote shortcode
+function pull_quote_sc($atts, $content = null) {
+    extract(shortcode_atts(array(
+        'width' => '600',
+        'author' => '',
+    ), $atts));
+    if (!$author == '') {
+        $authorname = '<cite><em>' . esc_attr($author) . '</em></cite>';
+    } else {
+        $authorname = null;
+    }
+    return '<blockquote class="pull-quote" style="width=' . esc_attr($width) . '">
+    <p>' . $content . '</p>' . $authorname . '</blockquote>';
+}
+add_shortcode("pullquote", "pull_quote_sc");
+
 
 // Include custom widget areas
 include('library/widget-areas.php');

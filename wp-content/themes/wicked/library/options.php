@@ -15,6 +15,13 @@ function childtheme_options() {
         $categories[$cat->cat_ID] = $cat->cat_name;
     }
 
+    // the color variants array
+    $color_variants = array(
+        "blue" => "blue",
+        "red" => "red",
+        "yellow" => "yellow"
+    );
+
     $childoptions = array (
 
         array( "name" => __('Link Color','thematic'),
@@ -35,7 +42,15 @@ function childtheme_options() {
             "std" => $default_cat,
             "type" => "select",
             "options" => $categories
+        ),
+        array( "name" => __('Color Variant','thematic'),
+            "desc" => __('Select which color scheme or variant you would like to use.','thematic'),
+            "id" => "wicked_color_variant",
+            "std" => 'blue',
+            "type" => "radio",
+            "options" => $color_variants
         )
+
     );
 }
 add_action('init', 'childtheme_options');
