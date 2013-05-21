@@ -92,4 +92,7 @@ include('widgets/author-data.php');
 // include theme options
 include('library/options.php');
 
+// include style options
+include('library/style-options.php');
+
 ?>

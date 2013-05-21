@@ -213,7 +213,7 @@ function childtheme_admin() {
         </p>
     </form>
 
-    <p><?php _e('For more information about this theme, check out <a href="http://sitepoint.com/books/wordpress1">Build Your Own Wicked WordPress Themes</a>. If you have any questions, visit the <a href="http://sitepoint.com/forums/">SitePoint Forums</a>.', 'thematic'); ?></p>
+    <p><?php _e('For more information about this theme, check out <a href="http://sitepoint.com/books/wordpress1">My Wicked WordPress Themes</a>. If you have any questions, visit the <a href="http://sitepoint.com/forums/">SitePoint Forums</a>.', 'thematic'); ?></p>
 
 <?php
 } // end function
